@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="3.0" client="site" method="upgrade">
+	<name>JD CountdownAholic</name>
+	<creationDate>April 2012</creationDate>
+	<version>1.4.1</version>
+	<author>JoomDev (Formerly GraphicAholic)</author>
+	<copyright>Copyright (C) 2020 Joomdev, Inc. All rights reserved.</copyright>
+	<license>GNU General Public License version 2 or later</license>
+	<authorEmail>info@joomdev.com</authorEmail>
+	<authorUrl>https://www.joomdev.com</authorUrl>
+
+	<description>
+	<![CDATA[
+		<div class="alert alert-info" style="font-weight: normal;">
+			<h3>JD CountdownAholic</h3>
+			<p>JD CountdownAholic is an option rich countdown module for your Joomla 3.x websites. You can customize JD CountdownAholic to your website's demanding look and feel using any or all of the module options JD CountdownAholic gives you.</p>
+			<p>JD CountdownAholic formerly known as CountdownAholic from Graphicaholic is now moved to JoomDev along with other Extensions. <strong>Check out the <a href="https://www.joomdev.com/graphicaholic" target="_blank">Announcement here.</a></strong></p>
+			<a href="https://www.joomdev.com/forum/jd-countdownaholic" target="_blank">Support</a> | <span>Demo</span> | <a href="https://www.joomdev.com/products/extensions/jd-countdownaholic" target="_blank">More Details</a>
+		</div>
+	]]>
+	</description>
+
+	<files>
+		<filename module="mod_countdownaholic">mod_countdownaholic.php</filename>
+		<folder>js</folder>
+		<folder>images</folder>
+		<folder>fields</folder>
+		<folder>css</folder>
+		<filename module="mod_countdownaholic">mod_countdownaholic.xml</filename>
+		<filename module="mod_countdownaholic">index.html</filename>
+	</files>
+
+	<updateservers>
+		<server type="extension" priority="1" name="JD CountdownAholic">https://joomdev.com/updates/countdownaholic.xml</server>
+	</updateservers>
+
+	<config>
+		<fields name="params" addfieldpath="/modules/mod_countdownaholic/fields">
+			<!-- General Settings -->
+			<fieldset name="general" group="general" label="General Settings">
+				<field name="styling" type="list" default="1" label="Styling" description="Select countdown styling">
+					<option value="1">Graphical Images</option>
+					<option value="2">CSS Styling</option>
+				</field>
+				<field name="alignment" type="list" default="center" label="Styling alignment" description="Select alignment styling">
+					<option value="left">Left Align</option>
+					<option value="center">Center Align</option>
+				</field>
+				<field name="hideLabels" type="list" default="false" label="Hide labels below numbers" description="Set to Yes to prevent the DAYS HOURS MINUTES labels below the number altogether">
+					<option value="false">No</option>
+					<option value="true">Yes</option>
+				</field>
+				<field name="CSSalignment" type="text" showon="styling:2" default="50" label="Adjust CSS centering" description="Adjust plus or minus to fine tune CSS centering if Styling alignment is set to Center Align." />
+				<field name="hideLine" type="list" showon="styling:2" default="false" label="Hide line middle of numbers" description="When true hides the black line in the middle of the numbers. Doesn't affect the flip stlye">
+					<option value="false">No</option>
+					<option value="true">Yes</option>
+				</field>
+				<field name="topMargin" type="text" default="0.0" label="Texting space" description="Space between scrolling countdown and countdown descriptions. Use the minus symbol to add additional white space inbetween." />
+				<field name="padding" type="text" default="0.0" label="Space between countdown" description="Space between scrolling countdown blocks." />
+				<field name="textYears" type="text" showon="hideLabels:false" default="YEAR" label="Langauge for YEARS" description="Type in your langauge for YEARS." />
+				<field name="textMonths" type="text" showon="hideLabels:false" default="MONTHS" label="Langauge for MONTHS" description="Type in your langauge for MONTHS." />
+				<field name="textDays" type="text" showon="hideLabels:false" default="DAYS" label="Langauge for DAYS" description="Type in your langauge for DAYS." />
+				<field name="textHours" type="text" showon="hideLabels:false" default="HOURS" label="Langauge for HOURS" description="Type in your langauge for HOURS." />
+				<field name="textMinutes" type="text" showon="hideLabels:false" default="MINUTES" label="Langauge for MINUTES" description="Type in your langauge for MINUTES." />
+				<field name="textSeconds" type="text" showon="hideLabels:false" default="SECONDS" label="Langauge for SECONDS" description="Type in your langauge for SECONDS." />
+				<field name="year" type="text" default="2013" label="Countdown to year" description="Countdown year" />
+				<field name="month" type="text" default="1" label="Countdown to month" description="Countdown month" />
+				<field name="day" type="text" default="1" label="Countdown to day" description="Countdown day" />
+				<field name="ampm" type="list" default="AM" label="Countdown to AM or PM" description="Select AM or PM for countdown">
+					<option value="am">AM</option>
+					<option value="pm">PM</option>
+				</field>
+				<field name="hour" type="text" default="12" label="Countdown to hour" description="Countdown hour" />
+				<field name="minute" type="text" default="0" label="Countdown to minute" description="Countdown minute" />
+				<field name="second" type="text" default="0" label="Countdown to second" description="Countdown second" />
+				<field name="rangeHi" type="list" default="year" label="Show countdown starting with" description="Select year, month, day, hour, minute or second as your starting display">
+					<option value="year">Year</option>
+					<option value="month">Month</option>
+					<option value="day">Day</option>
+					<option value="hour">Hour</option>
+					<option value="minute">Minute</option>
+					<option value="second">Second</option>
+				</field>
+				<field name="rangeLo" type="list" default="second" label="Show countdown ending with" description="Select year, month, day, hour, minute or second as your ending display">
+					<option value="year">Year</option>
+					<option value="month">Month</option>
+					<option value="day">Day</option>
+					<option value="hour">Hour</option>
+					<option value="minute">Minute</option>
+					<option value="second">Second</option>
+				</field>
+				<field name="width" type="text" default="200" label="Countdown width" description="Countdown width. DO NOT include px after value" />
+				<field name="height" type="text" default="30" label="Countdown height" description="Countdown height. DO NOT include px after value" />
+				<field name="textAbove" filter="raw" type="textarea" cols="30" rows="5" default="" label="Custom text above" description="Type in your custom HTML text code to show above countdown." />
+				<field name="textBelow" filter="raw" type="textarea" cols="30" rows="5" default="" label="Custom text below" description="Type in your custom HTML text code to show below countdown." />
+				<field name="redirectURL" type="text" default="" label="Redirect URL" description="Type in the 'absolute' redirect URL when JD CountdownAholic reaches zero." />
+			</fieldset>
+			<fieldset name="styling" group="styling" label="CSS Styling">
+				<field name="numbersFont" type="list" default="Default" showon="styling:2" label="Numbers font style" description="Select the font style you wish to use for your countdown numbers. Default will render your template's assigned font family.">
+					<option value=" ">Default</option>
+					<option value="Georgia, serif">Georgia</option>
+					<option value="Palatino Linotype, Book Antiqua, Palatino, serif">Palatino Linotype</option>
+					<option value="Times New Roman, Times, serif">Times New Roman</option>
+					<option value="Arial, Helvetica, sans-serif">Arial</option>
+					<option value="Arial Black, Gadget, sans-serif">Arial Black</option>
+					<option value="Impact, Charcoal, sans-serif">Impact</option>
+					<option value="Comic Sans MS, cursive, sans-serif">Comic Sans MS</option>
+					<option value="Lucida Sans Unicode, Lucida Grande, sans-serif">Lucida Sans Unicode</option>
+					<option value="Tahoma, Geneva, sans-serif">Tahoma</option>
+					<option value="Trebuchet MS, Helvetica, sans-serif">Trebuchet MS</option>
+					<option value="Verdana, Geneva, sans-serif">Verdana</option>
+					<option value="Courier New, Courier, monospace">Courier New</option>
+					<option value="Lucida Console, Monaco, monospace">Lucida Console</option>
+				</field>
+				<field name="numbersColor" type="color" default="ffffff" showon="styling:2" label="Numbers font color" description="Numbers font color" />
+				<field name="backgroundColor" type="color" default="365D8B" showon="styling:2" label="Background color" description="Background color" />
+				<field name="labelsFont" type="list" default="Default" label="Labels font style" description="Select the font style you wish to use for your labels text. Default will render your template's assigned font family.">
+					<option value=" ">Default</option>
+					<option value="Georgia, serif">Georgia</option>
+					<option value="Palatino Linotype, Book Antiqua, Palatino, serif">Palatino Linotype</option>
+					<option value="Times New Roman, Times, serif">Times New Roman</option>
+					<option value="Arial, Helvetica, sans-serif">Arial</option>
+					<option value="Arial Black, Gadget, sans-serif">Arial Black</option>
+					<option value="Impact, Charcoal, sans-serif">Impact</option>
+					<option value="Comic Sans MS, cursive, sans-serif">Comic Sans MS</option>
+					<option value="Lucida Sans Unicode, Lucida Grande, sans-serif">Lucida Sans Unicode</option>
+					<option value="Tahoma, Geneva, sans-serif">Tahoma</option>
+					<option value="Trebuchet MS, Helvetica, sans-serif">Trebuchet MS</option>
+					<option value="Verdana, Geneva, sans-serif">Verdana</option>
+					<option value="Courier New, Courier, monospace">Courier New</option>
+					<option value="Lucida Console, Monaco, monospace">Lucida Console</option>
+				</field>
+				<field name="labelsColor" type="color" default="000000" label="Labels font color" description="Labels font color" />
+				<field name="textScale" type="text" default="1.0" label="Labels font size" description="Larger value will increase labels font sizes. Value after decimal supported" />
+				<field name="offSet" type="text" default="5" label="Labels offset" description="Sets distance between numbers and labels. Adjust as needed." />
+			</fieldset>
+			<fieldset name="editor" group="editor" label="Editor">
+				<field name="editor" type="editor" default="" label="Editor" description="" />
+			</fieldset>
+			<fieldset name="advanced" group="advanced">
+				<field name="moduleclass_sfx" type="text" default="" label="Module Class Suffix" description="fieldMODULECLASSSUFFIX" />
+				<field name="cache" type="radio" class="btn-group" default="1" label="Caching" description="Select whether to cache the content of this module">
+					<option value="1">Use global</option>
+					<option value="0">No caching</option>
+				</field>
+				<field name="cache_time" type="text" default="900" label="Cache Time" description="The time before the module is recached" />
+				<field name="documentation" type="docs" default="900" label="" description="" />
+			</fieldset>
+		</fields>
+	</config>
+
+</extension>
